@@ -3,7 +3,6 @@ version: "3"
 services:
     smile_music_db:
         image: postgres:13.2
-        restart: always
         container_name: "smile_music_db"
         healthcheck:
             test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -h ${POSTGRES_HOST} -p ${POSTGRES_PORT} -d ${POSTGRES_DB}"]
@@ -23,11 +22,9 @@ services:
             - ./initdb:/docker-entrypoint-initdb.d
 
     smile_music_py:
-        restart: always
         build:
             context: .
         container_name: "smile_music_py"
-        tty: true
         depends_on:
             smile_music_db:
                 condition: service_healthy

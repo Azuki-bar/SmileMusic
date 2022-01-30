@@ -6,7 +6,7 @@ from re import match
 import bs4
 import discord
 # import youtubedl.youtube_dl as youtube_dl
-import youtube_dl
+import yt_dlp
 import requests
 from urllib import request as req
 from urllib import parse
@@ -27,7 +27,7 @@ from io import BufferedReader
 
 log = logging.getLogger(__name__)
 # Suppress noise about console usage from errors
-youtube_dl.utils.bug_reports_ctx = lambda: ''
+#yt_dlp.utils.bug_reports_ctx = lambda: ''
 
 ytdl_format_options = {
     'format': 'bestaudio/best',
@@ -74,7 +74,7 @@ headers = {
     "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:47.0) Gecko/20100101 Firefox/47.0",
 }
 
-ytdl = youtube_dl.YoutubeDL(ytdl_format_options)
+ytdl = yt_dlp.YoutubeDL(ytdl_format_options)
 
 client = discord.Client()
 
