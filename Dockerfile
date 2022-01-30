@@ -6,11 +6,12 @@ ENV SMILEMUSIC_ENV=Prod
 
 ENV TZ JST-9
 
+RUN apt-get update --no-install-recommends && apt-get install -y libpq-dev ffmpeg
+
 COPY ./requirements.txt /opt
 COPY ./python /opt
 WORKDIR /opt
 
-RUN apt-get update --no-install-recommends && apt-get install -y libpq-dev ffmpeg
 RUN pip install -r requirements.txt
 
 CMD ["python", "smile_music.py"]
