@@ -1,6 +1,6 @@
 discord.py
 aiofile
-youtube-dl
+yt-dlp
 bs4
 psycopg2
 requests
